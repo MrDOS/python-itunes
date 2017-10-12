@@ -4,7 +4,7 @@ import itunes
 
 U2 = 'U2'
 U2_ONE = 'One'
-U2_ACHTUNGBABY = 'Achtung Baby (Deluxe Edition) [Remastered]' # 'Achtung Baby'
+U2_ACHTUNGBABY = 'Achtung Baby (Deluxe Edition)' # 'Achtung Baby'
 
 MUSIC_VIDEO_KIND = 'music-video'
 SONG_KIND = "song"
