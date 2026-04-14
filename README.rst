@@ -1,7 +1,9 @@
 Python iTunes
 =============
 
-A simple python wrapper to access iTunes Store API http://www.apple.com/itunes/affiliates/resources/documentation/itunes-store-web-service-search-api.html
+A simple Python wrapper to access `iTunes Search API`_.
+
+.. _iTunes Search API: https://performance-partners.apple.com/search-api
 
 Installation
 ------------
