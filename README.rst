@@ -83,7 +83,8 @@ Examples
 
 Search
 ~~~~~~
-::
+
+.. code-block:: python
 
   import itunes
 
@@ -120,7 +121,7 @@ Search
 Lookup
 ~~~~~~
 
-::
+.. code-block:: python
 
   import itunes
 
@@ -144,7 +145,7 @@ Lookup
 Caching JSON results
 ~~~~~~~~~~~~~~~~~~~~
 
-::
+.. code-block:: python
 
   import itunes
 
@@ -157,6 +158,6 @@ Caching JSON results
 Tests
 -----
 
-::
+.. code-block:: sh
 
   $ nosetests tests
