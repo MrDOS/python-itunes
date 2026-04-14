@@ -67,7 +67,7 @@ class _Request(object):
 
         request = urllib.request.Request(url)
         response = urllib.request.urlopen(request)
-        return response.read()
+        return response.read().decode()
 
     def execute(self, cacheable=False):
         try:
@@ -289,7 +289,7 @@ class Item(object):
                 self._set_name(self.json['collectionName'])
             elif 'artistName' in self.json:
                 self._set_name(self.json['artistName'])
-        return self.name.encode('utf8')
+        return self.name
 
     def __eq__(self, other):
         if other == None:
