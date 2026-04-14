@@ -1,41 +1,94 @@
 Python iTunes
 =============
 
-A simple python wrapper to access iTunes Store API http://www.apple.com/itunes/affiliates/resources/documentation/itunes-store-web-service-search-api.html
+A simple Python wrapper to access `iTunes Search API`_.
+
+.. _iTunes Search API: https://performance-partners.apple.com/search-api
 
 Installation
 ------------
 
-Pypi package available at http://pypi.python.org/pypi/python-itunes/1.0
+The library is distributed `on PyPI`_,
+and can be installed into a `virtual environment`_ for your project
+with ``pip``:
 
-::
+.. code-block:: sh
 
-  $ easy_install python-itunes
+  $ pip install python-itunes
 
-Or download the code from https://github.com/ocelma/python-itunes/archives/master and then
+To install the latest development version,
+``pip`` can fetch the source from the Git repository:
 
-::
+.. code-block:: sh
 
-  $ python setup.py install
+  $ pip install git+https://github.com/ocelma/python-itunes
 
-.. note::
+Usually, you would list this dependency in your ``pyproject.toml``:
 
-  If you're using python version <= 2.5 you'll need to install simplejson. E.g:
+.. code-block:: toml
 
-::
+  [project]
+  # ...
+  dependencies = [
+    "python-itunes",
+    # or
+    "python-itunes @ git+https://github.com/ocelma/python-itunes",
+  ]
 
-  $ easy_install simplejson
+.. _on PyPI: http://pypi.python.org/pypi/python-itunes
+.. _virtual environment: https://docs.python.org/3/library/venv.html
 
+Development
+-----------
+
+To hack on the library itself,
+create a venv,
+and make an *editable* install of the library,
+along with development tools:
+
+.. code-block:: sh
+
+  $ git clone https://github.com/ocelma/python-itunes
+  $ cd python-itunes
+  $ python3 -m venv env
+  $ . env/bin/activate
+  $ pip install --editable ".[dev]"
+
+If you get an error like this::
+
+  ERROR: File "setup.py" or "setup.cfg" not found. Directory cannot be installed in editable mode: /path/to/python-itunes
+  (A "pyproject.toml" file was found, but editable mode currently requires a setuptools-based build.)
+
+...your ``pip`` is too old.
+Upgrading the version installed in your venv
+will resolve the problem:
+
+.. code-block:: sh
+
+  $ pip install --upgrade pip
+
+Whenever you open a new terminal,
+don't forget to re-activate the venv:
+
+.. code-block:: sh
+
+  $ cd python-itunes
+  $ . env/bin/activate
+
+Then, when you ``import itunes`` in a Python REPL,
+changes made to the library source
+are available immediately without reinstalling the package.
 
 Examples
 --------
 
 Search
 ~~~~~~
-::
+
+.. code-block:: python
 
   import itunes
-  
+
   # Search band U2
   artist = itunes.search_artist('u2')[0]
   for album in artist.get_albums():
@@ -52,7 +105,7 @@ Search
 
   # Global Search 'Beatles'
   items = itunes.search(query='beatles')
-  for item in items: 
+  for item in items:
       print '[' + item.type + ']', item.get_artist(), item.get_name(), item.get_url(), item.get_release_date()
 
   # Search 'Angry Birds' game
@@ -69,20 +122,20 @@ Search
 Lookup
 ~~~~~~
 
-::
+.. code-block:: python
 
   import itunes
 
   # Lookup Achtung Baby album by U2
   U2_ACHTUNGBABY_ID = 475390461
   album = itunes.lookup(U2_ACHTUNGBABY_ID)
-  
+
   print album.get_url()
   print album.get_artwork()
-  
+
   artist = album.get_artist()
   tracks = album.get_tracks()
- 
+
   # Lookup song One from Achtung Baby album by U2
   U2_ONE_ID = 475391315
   track = itunes.lookup(U2_ONE_ID)
@@ -93,7 +146,7 @@ Lookup
 Caching JSON results
 ~~~~~~~~~~~~~~~~~~~~
 
-::
+.. code-block:: python
 
   import itunes
 
@@ -106,6 +159,6 @@ Caching JSON results
 Tests
 -----
 
-::
+.. code-block:: sh
 
-  $ nosetests tests
+  $ pytest
