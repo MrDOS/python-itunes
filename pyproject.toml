@@ -1,0 +1,14 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "python-itunes"
+version = "1.0"
+description = "A simple python wrapper to access iTunes Store API"
+authors = [{ name = "Oscar Celma", email = "ocelma@bmat.com" }]
+maintainers = [{ name = "Oscar Celma", email = "ocelma@bmat.com" }]
+license = { text = "GPL-3.0-or-later" }
+
+[project.urls]
+source = "https://github.com/ocelma/python-itunes"

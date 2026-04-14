@@ -14,15 +14,6 @@ try:
 except ImportError:
     from md5 import md5
 
-__name__ = 'pyitunes'
-__doc__ = 'A python interface to search iTunes Store'
-__author__ = 'Oscar Celma'
-__version__ = '0.2'
-__license__ = 'GPL'
-__maintainer__ = 'Oscar Celma'
-__email__ = 'ocelma@bmat.com'
-__status__ = 'Beta'
-
 API_VERSION = '2'        # iTunes API version
 COUNTRY = 'US'           # ISO Country Store
 
