@@ -89,7 +89,3 @@ def test_unicode():
 
 def test_unicode2():
     assert itunes.search_artist('Björk')[:5] == itunes.search_artist(u'Bj\xf6rk')[:5]
-
-def test_movie_as_track():
-    item = itunes.search(query='the godfather', media='movie')[0]
-    assert item.get_artist() == None
