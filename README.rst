@@ -43,7 +43,8 @@ Development
 
 To hack on the library itself,
 create a venv,
-and make an *editable* install of the library:
+and make an *editable* install of the library,
+along with development tools:
 
 .. code-block:: sh
 
@@ -51,7 +52,7 @@ and make an *editable* install of the library:
   $ cd python-itunes
   $ python3 -m venv env
   $ . env/bin/activate
-  $ pip install --editable .
+  $ pip install --editable ".[dev]"
 
 If you get an error like this::
 
@@ -160,4 +161,4 @@ Tests
 
 .. code-block:: sh
 
-  $ nosetests tests
+  $ pytest
